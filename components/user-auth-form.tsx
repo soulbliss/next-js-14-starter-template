@@ -17,7 +17,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         variant="outline"
         onClick={() => {
           signIn('google', {
-            callbackUrl: PATHS.HOME,
+            callbackUrl: PATHS.DASHBOARD,
           });
         }}
         type="button">
