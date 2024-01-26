@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running checks before commit"
+
+pnpm run lint:fix
+
+pnpm run lint
+
+pnpm run typecheck
