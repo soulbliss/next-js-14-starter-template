@@ -16,11 +16,10 @@ export default async function IndexPage() {
             Follow along on Twitter
           </Link>
           <h1 className="font-sans text-3xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-            Life goal tracker <br /> get things done.
+            Template app amazing hero!
           </h1>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-            Personal goal tracker to help you get things done and achieve your
-            goals.
+            Here is a short description of the app. It is a modern app.
           </p>
           <div className="space-x-4">
             <Link href="/login" className={cn(buttonVariants({ size: 'lg' }))}>
