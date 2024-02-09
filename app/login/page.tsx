@@ -23,7 +23,7 @@ export default function AuthenticationPage() {
             </div>
             <div className="flex flex-col space-y-2 text-center">
               <h1 className="text-2xl font-semibold tracking-tight">
-                Continue with Google
+                Continue with Twitter
               </h1>
             </div>
             <UserAuthForm />

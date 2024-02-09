@@ -16,13 +16,13 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
       <Button
         variant="outline"
         onClick={() => {
-          signIn('google', {
+          signIn('twitter', {
             callbackUrl: PATHS.DASHBOARD,
           });
         }}
         type="button">
-        <Icons.google className="mr-2 h-4 w-4" />
-        Google
+        <Icons.twitter className="mr-2 h-4 w-4" />
+        Twitter
       </Button>
     </div>
   );

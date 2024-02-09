@@ -1,6 +1,4 @@
-import { PATHS } from '@/config/paths';
 import { authOptions } from '@/lib/auth';
-import { getUserCurrentYearReviews } from '@/lib/db/yearReview';
 import { getCurrentUser } from '@/lib/session';
 import { redirect } from 'next/navigation';
 export default async function DashboarDeciderPage() {
@@ -8,11 +6,15 @@ export default async function DashboarDeciderPage() {
   if (!user) {
     redirect(authOptions?.pages?.signIn || '/login');
   }
-  const yearReviews = await getUserCurrentYearReviews(user.email || '');
 
-  if (yearReviews?.status === 'completed') {
-    redirect(PATHS.DASHBOARD_CHECK_IN);
-  } else {
-    redirect(PATHS.DASHBOARD_REVIEW);
-  }
+  return (
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-lg font-medium">Welcome {user.name} App</h3>
+        <p className="text-sm text-muted-foreground">
+          Let us begin with working on the app.
+        </p>
+      </div>
+    </div>
+  );
 }
