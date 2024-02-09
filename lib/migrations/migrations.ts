@@ -48,12 +48,5 @@ export const migrations = `
     PRIMARY KEY (id)
   );
 
-  CREATE TABLE year_reviews
-  (
-      id SERIAL PRIMARY KEY,
-      user_id INTEGER REFERENCES users(id),
-      timestamp TIMESTAMPTZ NOT NULL,
-      status VARCHAR(20) CHECK (status IN ('not-started', 'in-progress', 'completed'))
-  );
 
 `;
