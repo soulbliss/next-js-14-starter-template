@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: 'Life goal tracker',
+  name: 'Template app',
   url: 'http://localhost:3000',
   description: 'Description',
   mainNav: [
