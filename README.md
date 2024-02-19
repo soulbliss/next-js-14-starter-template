@@ -8,7 +8,7 @@ Uses Postgres as DB, NextAuth 4, Tailwind CSS has support for dark mode.
 
 Open to suggestions to make this better for indiehackers to get started with their projects and code fast!
 
-![cover](/Users/deepakgarasangi/Development/next-js-14-starter-template/public/cover.png)
+![cover](https://raw.githubusercontent.com/soulbliss/next-js-14-starter-template/main/public/cover.png)
 
 ## Usage
 
