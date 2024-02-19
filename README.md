@@ -35,7 +35,7 @@ git clone https://github.com/soulbliss/next-js-14-starter-template.git
 
 ## Guide for beginners
 
-1. For generating quick logos use [Logofa.st](https://logofa.st/) by Marc louvin and put the generated logo in `/public` folder.
+1. For generating quick logos use [Logofa.st](https://logofa.st/) by [Marc Lou](https://twitter.com/marc_louvion) and put the generated logo in `/public` folder.
 2. Use [Favicon Generator](https://realfavicongenerator.net/) for site icon. Download the zip file and put this into the `/public` folder:
 3. Can find nice hero patterns for landing page here on [hero patterns](https://heropatterns.com/)
 
