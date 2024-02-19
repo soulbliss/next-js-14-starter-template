@@ -15,6 +15,14 @@ PS: I have a [SaaS newsletter](https://deeps.beehiiv.com/subscribe) worth checki
 
 Contributions, feedback and ideas welcome!
 
+## Motivation 
+
+The [shadcn-ui](https://github.com/shadcn-ui)/[taxonomy](https://github.com/shadcn-ui/taxonomy) project has a lot of dependencies that is heavy on dependencies for using blog, content layed, mdx etc
+
+I wanted a bare bones simple scaffolding for building SaaS apps quicker and always use this template to start things from here,
+
+ so thought might as well share it with people!
+
 ## Usage
 
 ```bash
