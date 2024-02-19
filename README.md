@@ -17,7 +17,7 @@ Contributions, feedback and ideas welcome!
 
 ## Motivation 
 
-The [shadcn-ui](https://github.com/shadcn-ui)/[taxonomy](https://github.com/shadcn-ui/taxonomy) project has a lot of dependencies that is heavy on dependencies for using blog, content layed, mdx etc
+The [shadcn-ui](https://github.com/shadcn-ui)/[taxonomy](https://github.com/shadcn-ui/taxonomy) project has a lot of dependencies that is heavy on dependencies for using blog, has content layer, mdx and so on. 
 
 I wanted a bare bones simple scaffolding for building SaaS apps quicker and always use this template to start things from here,
 
