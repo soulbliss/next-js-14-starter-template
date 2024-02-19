@@ -4,46 +4,11 @@ import { Metadata } from 'next';
 import { SiteHeader } from '@/components/site-header';
 import { TailwindIndicator } from '@/components/tailwind-indicator';
 import { ThemeProvider } from '@/components/theme-provider';
-import { siteConfig } from '@/config/site';
-import { fontSans } from '@/lib/fonts';
+import { seoMetaData } from '@/config/seo-meta-data';
+import { fontMono, fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 
-export const metadata: Metadata = {
-  title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  manifest: 'site.webmanifest',
-  keywords: [],
-  authors: [
-    {
-      name: 'Deepak Garasangi',
-    },
-  ],
-  creator: 'Deepak Garasangi',
-  metadataBase: new URL(siteConfig.url),
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [`${siteConfig.url}/og.jpg`],
-    creator: '@soulblissX',
-  },
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
-  },
-};
+export const metadata: Metadata = seoMetaData;
 
 export const viewport = {
   themeColor: [
@@ -59,7 +24,10 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" suppressHydrationWarning>
+      <html
+        lang="en"
+        className={`${fontSans.variable} ${fontMono.variable}`}
+        suppressHydrationWarning>
         <head />
         <body
           className={cn(

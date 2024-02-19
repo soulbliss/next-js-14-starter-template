@@ -17,7 +17,7 @@ export function MainNav({ items }: MainNavProps) {
           className="mr-2"
           width={32}
           height={32}
-          src="/icon.svg"
+          src="/icon.png"
           alt="user"
         />
         <span className="inline-block font-bold">{siteConfig.name}</span>

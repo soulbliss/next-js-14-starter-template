@@ -1,4 +1,4 @@
-import { Inter as FontMono, Manrope as FontSans } from 'next/font/google';
+import { Manrope as FontMono, Inter as FontSans } from 'next/font/google';
 
 export const fontSans = FontSans({
   subsets: ['latin'],
@@ -7,5 +7,5 @@ export const fontSans = FontSans({
 
 export const fontMono = FontMono({
   subsets: ['latin'],
-  variable: '--font-heading',
+  variable: '--font-display',
 });

@@ -11,9 +11,9 @@ type dbClient = {
 };
 
 export const pgDbConfig: dbClient = {
-  user: process.env.PG_DB_USER || 'soulbliss',
-  password: process.env.PG_DB_PASSWORD || 'breeze',
-  database: process.env.PG_DB_DATABASE || 'breeze',
+  user: process.env.PG_DB_USER as string,
+  password: process.env.PG_DB_PASSWORD as string,
+  database: process.env.PG_DB_NAME as string,
   host: process.env.PG_DB_HOST || 'localhost',
   port: process.env.PG_DB_PORT ? parseInt(process.env.PG_DB_PORT, 10) : 5432,
   ssl: process.env.PG_DB_SSL === 'true',
