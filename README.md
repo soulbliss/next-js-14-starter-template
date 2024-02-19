@@ -1,14 +1,19 @@
 # Free Next JS 14 boilerplate for indiehackers!
+![cover](https://raw.githubusercontent.com/soulbliss/next-js-14-starter-template/main/public/cover.png)
 
-Modified from [shadcn-ui](https://github.com/shadcn-ui)/[taxonomy](https://github.com/shadcn-ui/taxonomy) project. Do check it out. Modified it for my daily purpose.
 
-A Next.js 14 template for indiehackers, buildinpublic people to building apps quickly.
 
-Uses Postgres as DB, NextAuth 4, Tailwind CSS has support for dark mode.
+- Modified from [shadcn-ui](https://github.com/shadcn-ui)/[taxonomy](https://github.com/shadcn-ui/taxonomy) project. Do check it out. Modified it for my daily purpose ✅
+
+- A Next.js 14 template for indiehackers, buildinpublic people to building apps quickly ✅
+
+- Uses Postgres as DB, NextAuth 4, Tailwind CSS has support for dark mode ✅
 
 Open to suggestions to make this better for indiehackers to get started with their projects and code fast!
 
-![cover](https://raw.githubusercontent.com/soulbliss/next-js-14-starter-template/main/public/cover.png)
+PS: I have a [SaaS newsletter](https://deeps.beehiiv.com/subscribe) worth checking it out! Moving ahead 👇🏼 
+
+Contributions, feedback and ideas welcome!
 
 ## Usage
 
