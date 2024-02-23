@@ -10,7 +10,7 @@ export default async function DashboarDeciderPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="text-lg font-medium">Welcome {user.name} App</h3>
+        <h3 className="text-lg font-medium">Welcome {user.name}, to the App</h3>
         <p className="text-sm text-muted-foreground">
           Let us begin with working on the app.
         </p>

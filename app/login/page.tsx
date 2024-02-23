@@ -6,7 +6,7 @@ import { UserAuthForm } from '@/components/user-auth-form';
 export const metadata: Metadata = {
   title: 'Login',
   description:
-    'Login to your account to access your dashboard and read visual summaries of books.',
+    'Login to your account to access your dashboard',
 };
 
 export default function AuthenticationPage() {
