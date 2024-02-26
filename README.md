@@ -1,4 +1,4 @@
-# Free Next JS 14 boilerplate for indiehackers!
+# [Free Next JS 14 boilerplate for indiehackers!](https://cookiewriter.com/)
 ![cover](https://raw.githubusercontent.com/soulbliss/next-js-14-starter-template/main/public/cover.png)
 
 
