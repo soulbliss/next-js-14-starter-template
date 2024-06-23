@@ -1,5 +1,6 @@
 'use client';
 
+import { getInitials } from '@/lib/utils';
 import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
@@ -31,10 +32,7 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
               alt={user.name || user.email || ''}
             />
             <AvatarFallback>
-              {`${user.name?.charAt(0).toUpperCase()}${
-                user.name?.split(' ')?.[1]?.charAt(0)?.toUpperCase() ||
-                user.name?.charAt(0).toUpperCase()
-              }`}
+              {getInitials(user.name || user.email)}
             </AvatarFallback>
           </Avatar>
         </Button>

@@ -17,7 +17,7 @@ export const authOptions: NextAuthOptions = {
   theme: {
     colorScheme: 'light',
     logo: '/favicon.ico',
-    buttonText: '#000000',
+    buttonText: '#ffffff',
     brandColor: '#000000',
   },
   providers: [
