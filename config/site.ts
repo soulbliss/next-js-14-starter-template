@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: 'Template app',
+  name: 'Next JS Starter Template',
   url: 'http://localhost:3000',
   ogImage: 'http://localhost:3000/og.jpg',
   creator: 'Your name',

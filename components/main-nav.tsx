@@ -20,10 +20,10 @@ export function MainNav({ items }: MainNavProps) {
           src="/icon.png"
           alt="user"
         />
-        <span className="inline-block font-bold">{siteConfig.name}</span>
+        <span className="hidden sm:flex font-bold">{siteConfig.name}</span>
       </Link>
       {items?.length ? (
-        <nav className="flex gap-6">
+        <nav className="sm:flex gap-6 hidden">
           {items?.map(
             (item, index) =>
               item.href && (
