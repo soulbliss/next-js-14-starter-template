@@ -17,7 +17,7 @@ export default function AuthenticationPage() {
         </div>
         <div className="lg:p-8">
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-            <div className="block items-center self-center justify-center md:flex lg:hidden">
+            <div className="block items-center justify-center self-center md:flex lg:hidden">
               <Image src="/icon.png" alt="logo" width={48} height={48} />
             </div>
             <div className="flex flex-col space-y-2 text-center">
