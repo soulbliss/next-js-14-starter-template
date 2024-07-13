@@ -22,6 +22,10 @@ export function Analytics() {
               });
           `}
       </Script>
+      <Script
+        defer
+        data-domain="next-js-14-starter-template.vercel.app"
+        src={process.env.PLAUSIBLE}></Script>
     </>
   );
 }
