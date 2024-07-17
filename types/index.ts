@@ -1,6 +1,10 @@
-export type ResendContact = {
+export type EmailContact = {
   email: string;
-  first_name: string;
-  last_name: string;
-  unsubscribed: boolean;
+  firstName: string;
+  lastName: string;
+  source?: string;
+  subscribed: boolean;
+  userGroup?: string;
+  userId?: string;
+  mailingLists?: Record<string, boolean>;
 };

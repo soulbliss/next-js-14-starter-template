@@ -1,4 +1,4 @@
-import { ResendContact } from '@/types';
+import { EmailContact } from '@/types';
 import { User } from 'next-auth';
 
 export function createDiscordMessage(values: User) {
@@ -7,6 +7,27 @@ export function createDiscordMessage(values: User) {
     avatar_url: values.image,
     content: `New user created!\nid: ${values.id}\nName: ${values.name}\nEmail: ${values.email}`,
   };
+}
+
+export async function addContact(contact: EmailContact) {
+  const options = {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.EMAIL_PROVIDER_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(contact),
+  };
+
+  const response = await fetch(
+    'https://app.loops.so/api/v1/contacts/create',
+    options,
+  );
+  if (!response.ok) {
+    const errorBody = await response.text();
+    throw new Error(`Failed to add contact: ${response.status} ${errorBody}`);
+  }
+  return response.json();
 }
 
 export async function afterUserCreated(values: User) {
@@ -27,47 +48,31 @@ export async function afterUserCreated(values: User) {
       );
     }
 
-    if (process.env.RESEND_API && process.env.RESEND_AUDIENCE_ID) {
-      const body: ResendContact = {
+    // add to email provider audience
+    if (process.env.EMAIL_PROVIDER_TOKEN) {
+      const contact: EmailContact = {
         email: values.email!,
-        first_name: values.name!,
-        last_name: '',
-        unsubscribed: false,
+        firstName: '',
+        lastName: '',
+        source: 'next-js-14-starter-template',
+        subscribed: true,
       };
-      promises.push(
-        fetch(
-          `https://api.resend.com/audiences/${process.env.RESEND_AUDIENCE_ID}/contacts`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${process.env.RESEND_API}`,
-            },
-            body: JSON.stringify(body),
-          },
-        ),
-      );
+      promises.push(addContact(contact));
     }
 
-    const results = await Promise.all(promises);
-    results.forEach(async (response, index) => {
-      if (!response.ok) {
-        const errorBody = await response.text();
-        console.error(
-          `Request ${index + 1} failed with status ${
-            response.status
-          }: ${errorBody}`,
-        );
+    const results = await Promise.allSettled(promises);
+    results.forEach((result, index) => {
+      if (result.status === 'fulfilled') {
+        console.log(`Request ${index + 1} succeeded`);
       } else {
-        console.log(
-          `Request ${index + 1} succeeded with status ${response.status}`,
-        );
+        console.error(`Request ${index + 1} failed:`, result.reason);
       }
     });
   } catch (error) {
     console.error('Error sending notifications:', error);
   }
 }
+
 export async function newUserCreated(values: User) {
   await afterUserCreated(values);
 }
