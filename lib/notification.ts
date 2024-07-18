@@ -52,7 +52,7 @@ export async function afterUserCreated(values: User) {
     if (process.env.EMAIL_PROVIDER_TOKEN) {
       const contact: EmailContact = {
         email: values.email!,
-        firstName: '',
+        firstName: values.name || '',
         lastName: '',
         source: 'next-js-14-starter-template',
         subscribed: true,
