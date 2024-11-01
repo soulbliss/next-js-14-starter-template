@@ -1,7 +1,6 @@
 # Free Next JS 14 boilerplate for indiehackers!
+
 ![cover](https://raw.githubusercontent.com/soulbliss/next-js-14-starter-template/main/public/cover.png)
-
-
 
 - Modified from [shadcn-ui](https://github.com/shadcn-ui)/[taxonomy](https://github.com/shadcn-ui/taxonomy) project. Do check it out. Modified it for my daily purpose ✅
 
@@ -11,17 +10,17 @@
 
 Open to suggestions to make this better for indiehackers to get started with their projects and code fast!
 
-PS: I have a [SaaS newsletter](https://deeps.beehiiv.com/subscribe) worth checking it out! Moving ahead 👇🏼 
+PS: I have a [SaaS newsletter](https://deeps.beehiiv.com/subscribe) worth checking it out! Moving ahead 👇🏼
 
 Contributions, feedback and ideas welcome!
 
-## Motivation 
+## Motivation
 
-The [shadcn-ui](https://github.com/shadcn-ui)/[taxonomy](https://github.com/shadcn-ui/taxonomy) project has a lot of dependencies that is heavy on dependencies for using blog, has content layer, mdx and so on. 
+The [shadcn-ui](https://github.com/shadcn-ui)/[taxonomy](https://github.com/shadcn-ui/taxonomy) project has a lot of dependencies that is heavy on dependencies for using blog, has content layer, mdx and so on.
 
 I wanted a bare bones simple scaffolding for building SaaS apps quicker and always use this template to start things from here,
 
- so thought might as well share it with people!
+so thought might as well share it with people!
 
 ## Usage
 
@@ -49,7 +48,7 @@ git clone https://github.com/soulbliss/next-js-14-starter-template.git
 
 ### Adding login functionality
 
-1. Copy `sample.env.local`  and create `env.local`. Fill up the postgres database credentials.
+1. Copy `sample.env.local` and create `env.local`. Fill up the postgres database credentials.
 
 2. ```
    PG_DB_USER=
@@ -60,14 +59,14 @@ git clone https://github.com/soulbliss/next-js-14-starter-template.git
    PG_DB_SSL=false
    PG_DB_MAX_CONNECTIONS=20
    PG_DB_IDLE_TIMEOUT=10000
-   
+
    GOOGLE_CLIENT_ID=
    GOOGLE_CLIENT_SECRET=
    ```
 
 3. You need to connect to a postgres instance
 
-4. Copy `sample.env.local`  and create `env.local`. Fill up the postgres database credentials.
+4. Copy `sample.env.local` and create `env.local`. Fill up the postgres database credentials.
 
 5. ```
    PG_DB_USER=
