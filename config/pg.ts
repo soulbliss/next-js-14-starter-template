@@ -1,3 +1,5 @@
+import "@/config/envConfig"
+
 type dbClient = {
   connectionString: string
   max: number

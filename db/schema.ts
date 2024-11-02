@@ -1,5 +1,4 @@
 import {
-    boolean,
     timestamp,
     pgTable,
     text,
@@ -8,6 +7,8 @@ import {
 } from "drizzle-orm/pg-core"
 import { sql } from 'drizzle-orm'
 import { ProviderType } from "next-auth/providers"
+import { createInsertSchema } from "drizzle-zod"
+import { z } from "zod"
 
 const timestamps = {
     created_at: timestamp('created_at')
@@ -30,6 +31,9 @@ export const users = pgTable("user", {
     image: text("image"),
     ...timestamps
 })
+
+export const usersSchema = createInsertSchema(users)
+export type UserSchema = z.infer<typeof usersSchema>
 
 export const accounts = pgTable(
     "account",

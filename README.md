@@ -69,11 +69,11 @@ git clone https://github.com/soulbliss/next-js-14-starter-template.git
    PG_DB_CONNECTION_STRING = "postgres://{user}:{password}@{hostname}:{port}/{database-name}?{config}"
    ```
 
-6. Run `npx drizzle-kit migrate` 
+6. Run `npm/pnpm run db:migrate`
 
-7. Run `npm i` to install all dependencies
+7. Run `npm/pnpm i` to install all dependencies
 
-8. Run `npm run dev` and you can use login
+8. Run `npm/pnpm run dev` and you can use login
 
 ## License
 
