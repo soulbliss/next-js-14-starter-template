@@ -71,9 +71,9 @@ git clone https://github.com/soulbliss/next-js-14-starter-template.git
 
 6. Run `npx drizzle-kit migrate` 
 
-7. Run `pnpm i` to install all dependencies
+7. Run `npm i` to install all dependencies
 
-8. Run `pnpm run dev` and you can use login
+8. Run `npm run dev` and you can use login
 
 ## License
 

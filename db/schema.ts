@@ -6,7 +6,19 @@ import {
     primaryKey,
     integer,
 } from "drizzle-orm/pg-core"
+import { sql } from 'drizzle-orm'
 import { ProviderType } from "next-auth/providers"
+
+const timestamps = {
+    created_at: timestamp('created_at')
+        .defaultNow()
+        .notNull(),
+    updated_at: timestamp('updated_at')
+        .defaultNow()
+        .notNull()
+        .$onUpdate(() => sql`CURRENT_TIMESTAMP`),
+    deleted_at: timestamp('deleted_at')
+}
 
 export const users = pgTable("user", {
     id: text("id")
@@ -16,6 +28,7 @@ export const users = pgTable("user", {
     email: text("email").unique(),
     emailVerified: timestamp("emailVerified", { mode: "date" }),
     image: text("image"),
+    ...timestamps
 })
 
 export const accounts = pgTable(
@@ -34,6 +47,7 @@ export const accounts = pgTable(
         scope: text("scope"),
         id_token: text("id_token"),
         session_state: text("session_state"),
+        ...timestamps
     },
     (account) => {
         return {
@@ -50,6 +64,7 @@ export const sessions = pgTable("session", {
         .notNull()
         .references(() => users.id, { onDelete: "cascade" }),
     expires: timestamp("expires", { mode: "date" }).notNull(),
+    ...timestamps
 })
 
 export const verificationTokens = pgTable(
@@ -58,6 +73,7 @@ export const verificationTokens = pgTable(
         identifier: text("identifier").notNull(),
         token: text("token").notNull(),
         expires: timestamp("expires", { mode: "date" }).notNull(),
+        ...timestamps
     },
     (table) => {
         return {
