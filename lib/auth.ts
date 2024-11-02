@@ -1,12 +1,12 @@
-import { NextAuthOptions } from 'next-auth'
-import { Adapter } from 'next-auth/adapters'
-import EmailProvider from 'next-auth/providers/email'
-import GitHubProvider from 'next-auth/providers/github'
-import GoogleProvider from 'next-auth/providers/google'
-import { db } from '@/db/index'
-import { sendVerificationRequest } from './email/sendLoginMail'
-import { newUserCreated } from './notification'
-import { DrizzleAdapter } from '@auth/drizzle-adapter'
+import { db } from '@/db/index';
+import { DrizzleAdapter } from '@auth/drizzle-adapter';
+import { NextAuthOptions } from 'next-auth';
+import { Adapter } from 'next-auth/adapters';
+import EmailProvider from 'next-auth/providers/email';
+import GitHubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
+import { sendVerificationRequest } from './email/sendLoginMail';
+import { newUserCreated } from './notification';
 
 export const authOptions: NextAuthOptions = {
   adapter: DrizzleAdapter(db) as Adapter,
@@ -35,8 +35,7 @@ export const authOptions: NextAuthOptions = {
       sendVerificationRequest: sendVerificationRequest,
       server: {
         host: process.env.EMAIL_SERVER_HOST as string,
-        port: process.env.EMAIL_SERVER_PORT as string,
-
+        port: parseInt(process.env.EMAIL_SERVER_PORT as string),
         auth: {
           user: process.env.EMAIL_SERVER_USER as string,
           pass: process.env.EMAIL_SERVER_PASSWORD as string,
@@ -48,7 +47,7 @@ export const authOptions: NextAuthOptions = {
 
   events: {
     createUser: async ({ user }) => {
-      await newUserCreated(user)
+      await newUserCreated(user);
     },
   },
-}
+};

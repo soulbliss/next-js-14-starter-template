@@ -33,7 +33,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           });
         }}
         type="button">
-        <Icons.google className="mr-2 h-4 w-4" />
+        <Icons.google className="mr-2 size-4" />
         Google
       </Button>
       <Button
@@ -44,7 +44,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
           });
         }}
         type="button">
-        <Icons.gitHub className="mr-2 h-4 w-4" />
+        <Icons.gitHub className="mr-2 size-4" />
         GitHub
       </Button>
     </div>
