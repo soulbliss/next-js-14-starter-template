@@ -15,8 +15,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@auth/drizzle-adapter": "^1.7.2",
     "@auth/pg-adapter": "^0.2.15",
     "@hookform/resolvers": "^3.6.0",
+    "@next/env": "^15.0.2",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
     "@radix-ui/react-label": "^2.1.0",
@@ -24,6 +26,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.36.0",
     "lucide-react": "0.105.0-alpha.4",
     "next": "^14.0.4",
     "next-auth": "^4.24.5",
@@ -44,11 +48,12 @@
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^17.0.45",
     "@types/nodemailer": "^6.4.15",
-    "@types/pg": "^8.10.9",
+    "@types/pg": "^8.11.0",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.6",
     "@typescript-eslint/parser": "^5.61.0",
     "autoprefixer": "^10.4.14",
+    "drizzle-kit": "^0.27.1",
     "eslint": "^8.44.0",
     "eslint-config-next": "14.0.4",
     "eslint-config-prettier": "^8.8.0",
@@ -59,6 +64,7 @@
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "tailwindcss": "^3.3.2",
+    "tsx": "^4.19.2",
     "typescript": "^5.3.3"
   }
 }

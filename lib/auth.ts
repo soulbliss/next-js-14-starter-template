@@ -1,15 +1,15 @@
-import PostgresAdapter from '@auth/pg-adapter';
-import { NextAuthOptions } from 'next-auth';
-import { Adapter } from 'next-auth/adapters';
-import EmailProvider from 'next-auth/providers/email';
-import GitHubProvider from 'next-auth/providers/github';
-import GoogleProvider from 'next-auth/providers/google';
-import { db } from './db/db';
-import { sendVerificationRequest } from './email/sendLoginMail';
-import { newUserCreated } from './notification';
+import { NextAuthOptions } from 'next-auth'
+import { Adapter } from 'next-auth/adapters'
+import EmailProvider from 'next-auth/providers/email'
+import GitHubProvider from 'next-auth/providers/github'
+import GoogleProvider from 'next-auth/providers/google'
+import { db } from '@/db/index'
+import { sendVerificationRequest } from './email/sendLoginMail'
+import { newUserCreated } from './notification'
+import { DrizzleAdapter } from '@auth/drizzle-adapter'
 
 export const authOptions: NextAuthOptions = {
-  adapter: PostgresAdapter(db) as Adapter,
+  adapter: DrizzleAdapter(db) as Adapter,
   secret: process.env.AUTH_SECRET as string,
   pages: {
     error: '/login',
@@ -48,7 +48,7 @@ export const authOptions: NextAuthOptions = {
 
   events: {
     createUser: async ({ user }) => {
-      await newUserCreated(user);
+      await newUserCreated(user)
     },
   },
-};
+}
