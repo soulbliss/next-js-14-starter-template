@@ -23,7 +23,6 @@
   "dependencies": {
     "@auth/drizzle-adapter": "^1.7.2",
     "@auth/pg-adapter": "^0.2.15",
-    "@faker-js/faker": "^9.1.0",
     "@hookform/resolvers": "^3.6.0",
     "@next/env": "^15.0.2",
     "@radix-ui/react-avatar": "^1.0.4",
