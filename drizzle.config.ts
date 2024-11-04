@@ -7,6 +7,6 @@ export default defineConfig({
   schema: './db/schema.ts',
   dialect: 'postgresql',
   dbCredentials: {
-    url: PG_DB_CONNECTION_STRING!,
+    url: PG_DB_CONNECTION_STRING,
   },
 });
