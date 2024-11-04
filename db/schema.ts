@@ -2,6 +2,7 @@ import {
   integer,
   pgTable,
   primaryKey,
+  serial,
   text,
   timestamp,
 } from 'drizzle-orm/pg-core';
@@ -11,9 +12,7 @@ import { z } from 'zod';
 import { timestamps } from './column.helpers';
 
 export const users = pgTable('user', {
-  id: text('id')
-    .primaryKey()
-    .$defaultFn(() => crypto.randomUUID()),
+  id: serial('id').primaryKey(),
   name: text('name'),
   email: text('email').unique(),
   emailVerified: timestamp('emailVerified', { mode: 'date' }),
@@ -27,7 +26,8 @@ export type UserSchema = z.infer<typeof usersSchema>;
 export const accounts = pgTable(
   'account',
   {
-    userId: text('userId')
+    id: serial('id').primaryKey(),
+    userId: integer('userId')
       .notNull()
       .references(() => users.id, { onDelete: 'cascade' }),
     type: text('type').$type<ProviderType>().notNull(),
@@ -52,8 +52,9 @@ export const accounts = pgTable(
 );
 
 export const sessions = pgTable('session', {
-  sessionToken: text('sessionToken').primaryKey(),
-  userId: text('userId')
+  id: serial('id').primaryKey(),
+  sessionToken: text('sessionToken').unique(),
+  userId: integer('userId')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
   expires: timestamp('expires', { mode: 'date' }).notNull(),
