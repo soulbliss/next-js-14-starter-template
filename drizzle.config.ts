@@ -1,5 +1,4 @@
 import { defineConfig } from 'drizzle-kit';
-import { PG_DB_CONNECTION_STRING } from './config/env';
 import './config/envConfig';
 
 export default defineConfig({
@@ -7,6 +6,6 @@ export default defineConfig({
   schema: './db/schema.ts',
   dialect: 'postgresql',
   dbCredentials: {
-    url: PG_DB_CONNECTION_STRING,
+    url: process.env.PG_DB_CONNECTION_STRING!,
   },
 });
