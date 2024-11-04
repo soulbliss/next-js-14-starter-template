@@ -18,6 +18,10 @@ const envSchema = z.object({
     (val) => Number(val),
     z.number().int().positive(),
   ),
+  PG_DB_CONNECTION_TIMEOUT: z.preprocess(
+    (val) => Number(val),
+    z.number().int().nonnegative(),
+  ),
   PG_DB_IDLE_TIMEOUT: z.preprocess(
     (val) => Number(val),
     z.number().int().nonnegative(),
@@ -57,6 +61,7 @@ export const {
   EMAIL_FROM,
   PG_DB_MAX_CONNECTIONS,
   PG_DB_IDLE_TIMEOUT,
+  PG_DB_CONNECTION_TIMEOUT,
   PG_DB_CONNECTION_STRING,
   GITHUB_ID,
   GITHUB_SECRET,

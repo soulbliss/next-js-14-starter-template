@@ -1,3 +1,15 @@
+import {
+  AUTH_SECRET,
+  EMAIL_FROM,
+  EMAIL_SERVER_HOST,
+  EMAIL_SERVER_PASSWORD,
+  EMAIL_SERVER_PORT,
+  EMAIL_SERVER_USER,
+  GITHUB_ID,
+  GITHUB_SECRET,
+  GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET,
+} from '@/config/env';
 import { db } from '@/db/index';
 import { DrizzleAdapter } from '@auth/drizzle-adapter';
 import { NextAuthOptions } from 'next-auth';
@@ -10,7 +22,7 @@ import { newUserCreated } from './notification';
 
 export const authOptions: NextAuthOptions = {
   adapter: DrizzleAdapter(db) as Adapter,
-  secret: process.env.AUTH_SECRET as string,
+  secret: AUTH_SECRET,
   pages: {
     error: '/login',
   },
@@ -23,25 +35,25 @@ export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       allowDangerousEmailAccountLinking: true,
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      clientId: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
     }),
     GitHubProvider({
       allowDangerousEmailAccountLinking: true,
-      clientId: process.env.GITHUB_ID as string,
-      clientSecret: process.env.GITHUB_SECRET as string,
+      clientId: GITHUB_ID,
+      clientSecret: GITHUB_SECRET,
     }),
     EmailProvider({
       sendVerificationRequest: sendVerificationRequest,
       server: {
-        host: process.env.EMAIL_SERVER_HOST as string,
-        port: parseInt(process.env.EMAIL_SERVER_PORT as string),
+        host: EMAIL_SERVER_HOST,
+        port: EMAIL_SERVER_PORT,
         auth: {
-          user: process.env.EMAIL_SERVER_USER as string,
-          pass: process.env.EMAIL_SERVER_PASSWORD as string,
+          user: EMAIL_SERVER_USER,
+          pass: EMAIL_SERVER_PASSWORD,
         },
       },
-      from: `Next JS 14 starter template <${process.env.EMAIL_FROM}>`,
+      from: `Next JS 14 starter template <${EMAIL_FROM}>`,
     }),
   ],
 
