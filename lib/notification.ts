@@ -1,3 +1,4 @@
+import { EMAIL_PROVIDER_TOKEN, NOTIFICATION_WEBHOOK } from '@/config/env';
 import { EmailContact } from '@/types';
 import { User } from 'next-auth';
 
@@ -13,7 +14,7 @@ export async function addContact(contact: EmailContact) {
   const options = {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.EMAIL_PROVIDER_TOKEN}`,
+      Authorization: `Bearer ${EMAIL_PROVIDER_TOKEN}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(contact),
@@ -36,9 +37,9 @@ export async function afterUserCreated(values: User) {
     let promises: Promise<Response>[] = [];
 
     // send update on discord, if webhook is set
-    if (process.env.NOTIFICATION_WEBHOOK) {
+    if (NOTIFICATION_WEBHOOK) {
       promises.push(
-        fetch(process.env.NOTIFICATION_WEBHOOK, {
+        fetch(NOTIFICATION_WEBHOOK, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -49,7 +50,7 @@ export async function afterUserCreated(values: User) {
     }
 
     // add to email provider audience
-    if (process.env.EMAIL_PROVIDER_TOKEN) {
+    if (EMAIL_PROVIDER_TOKEN) {
       const contact: EmailContact = {
         email: values.email!,
         firstName: values.name || '',

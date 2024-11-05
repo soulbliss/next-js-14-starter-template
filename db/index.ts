@@ -1,16 +1,12 @@
 import { pgDbConfig } from '@/config/pg';
+import 'dotenv/config';
+import { drizzle } from 'drizzle-orm/node-postgres';
 import { Pool } from 'pg';
 
 const pool = new Pool({
-  host: pgDbConfig.host,
-  user: pgDbConfig.user,
-  database: pgDbConfig.database,
-  password: pgDbConfig.password,
-  port: pgDbConfig.port,
-  ssl: pgDbConfig.ssl,
+  connectionString: pgDbConfig.connectionString!,
   max: 20,
   idleTimeoutMillis: pgDbConfig.idleTimeoutMillis,
   connectionTimeoutMillis: pgDbConfig.connectionTimeoutMillis,
 });
-
-export const db = pool;
+export const db = drizzle({ client: pool, casing: 'snake_case' });

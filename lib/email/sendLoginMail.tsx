@@ -1,4 +1,5 @@
 import { siteConfig } from '@/config/site';
+import { SendVerificationRequestParams } from 'next-auth/providers/email';
 import { createTransport } from 'nodemailer';
 
 type Theme = {
@@ -23,7 +24,9 @@ type params = {
   theme: Theme;
 };
 
-export async function sendVerificationRequest({ ...params }: params) {
+export async function sendVerificationRequest(
+  params: SendVerificationRequestParams,
+) {
   const { identifier, url, provider, theme } = params;
   const { host } = new URL(url);
   // NOTE: You are not required to use `nodemailer`, use whatever you want.
