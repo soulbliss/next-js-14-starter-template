@@ -9,9 +9,13 @@ import { cn } from '@/lib/utils';
 import MagicLinkForm from './magic-link-form';
 import { Button } from './ui/button';
 
-interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
+type UserAuthFormProps =
+  React.HTMLAttributes<HTMLDivElement>;
 
-export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
+export function UserAuthForm({
+  className,
+  ...props
+}: UserAuthFormProps) {
   return (
     <div className={cn('grid gap-6', className)} {...props}>
       <MagicLinkForm />
@@ -32,7 +36,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             callbackUrl: PATHS.DASHBOARD,
           });
         }}
-        type="button">
+        type="button"
+      >
         <Icons.google className="mr-2 h-4 w-4" />
         Google
       </Button>
@@ -43,7 +48,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
             callbackUrl: PATHS.DASHBOARD,
           });
         }}
-        type="button">
+        type="button"
+      >
         <Icons.gitHub className="mr-2 h-4 w-4" />
         GitHub
       </Button>

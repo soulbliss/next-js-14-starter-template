@@ -9,7 +9,13 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Icons } from './icons';
 import { Button } from './ui/button';
-import { Form, FormControl, FormField, FormItem, FormMessage } from './ui/form';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from './ui/form';
 import { Input } from './ui/input';
 
 const formSchema = z.object({
@@ -17,7 +23,8 @@ const formSchema = z.object({
 });
 
 export default function MagicLinkForm() {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] =
+    useState<boolean>(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,21 +46,33 @@ export default function MagicLinkForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-8"
+      >
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Enter your email" {...field} />
+                <Input
+                  placeholder="Enter your email"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button className="w-full" type="submit" disabled={isLoading}>
-          {isLoading && <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />}
+        <Button
+          className="w-full"
+          type="submit"
+          disabled={isLoading}
+        >
+          {isLoading && (
+            <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+          )}
           Send Magic Link ✨
         </Button>
       </form>

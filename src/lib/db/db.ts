@@ -10,7 +10,8 @@ const pool = new Pool({
   ssl: pgDbConfig.ssl,
   max: 20,
   idleTimeoutMillis: pgDbConfig.idleTimeoutMillis,
-  connectionTimeoutMillis: pgDbConfig.connectionTimeoutMillis,
+  connectionTimeoutMillis:
+    pgDbConfig.connectionTimeoutMillis,
 });
 
 export const db = pool;

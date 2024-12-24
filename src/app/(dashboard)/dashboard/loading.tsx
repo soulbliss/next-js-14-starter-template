@@ -12,7 +12,8 @@ export default function DashboardLoading() {
             <DashboardHeader
               heading="Checking your progress"
               text="Let's have the most amazing year ever.
-    "></DashboardHeader>
+    "
+            ></DashboardHeader>
             <div className="divide-border-200 divide-y rounded-md border">
               <div className="p-4">
                 <div className="space-y-3">

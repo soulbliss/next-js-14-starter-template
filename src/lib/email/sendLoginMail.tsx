@@ -23,7 +23,9 @@ type params = {
   theme: Theme;
 };
 
-export async function sendVerificationRequest({ ...params }: params) {
+export async function sendVerificationRequest({
+  ...params
+}: params) {
   const { identifier, url, provider, theme } = params;
   const { host } = new URL(url);
   // NOTE: You are not required to use `nodemailer`, use whatever you want.
@@ -35,9 +37,13 @@ export async function sendVerificationRequest({ ...params }: params) {
     text: text({ url, host }),
     html: html({ url, host, theme }),
   });
-  const failed = result.rejected.concat(result.pending).filter(Boolean);
+  const failed = result.rejected
+    .concat(result.pending)
+    .filter(Boolean);
   if (failed.length) {
-    throw new Error(`Email(s) (${failed.join(', ')}) could not be sent`);
+    throw new Error(
+      `Email(s) (${failed.join(', ')}) could not be sent`
+    );
   }
 }
 
@@ -49,7 +55,11 @@ export async function sendVerificationRequest({ ...params }: params) {
  *
  * @note We don't add the email address to avoid needing to escape it, if you do, remember to sanitize it!
  */
-function html(params: { url: string; host: string; theme: Theme }) {
+function html(params: {
+  url: string;
+  host: string;
+  theme: Theme;
+}) {
   const { url, host, theme } = params;
 
   // const escapedHost = host.replace(/\./g, '&#8203;.');
@@ -97,6 +107,9 @@ function html(params: { url: string; host: string; theme: Theme }) {
 }
 
 /** Email Text body (fallback for email clients that don't render HTML, e.g. feature phones) */
-function text({ url, host }: { url: string; host: string }) {
+function text({
+  url,
+  host,
+}: { url: string; host: string }) {
   return `Sign in to ${host}\n${url}\n\n`;
 }

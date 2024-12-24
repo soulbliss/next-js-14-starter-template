@@ -19,11 +19,16 @@ export async function SiteHeader() {
           <nav className="flex items-center space-x-1">
             <ThemeToggle />
             {!user && (
-              <Link href={PATHS.LOGIN} rel="noreferrer" className="mr-4">
+              <Link
+                href={PATHS.LOGIN}
+                rel="noreferrer"
+                className="mr-4"
+              >
                 <Button
                   variant={'outline'}
                   data-umami-event="Getting started public"
-                  className="ml-2 w-full whitespace-nowrap font-medium">
+                  className="ml-2 w-full whitespace-nowrap font-medium"
+                >
                   Login
                 </Button>
               </Link>

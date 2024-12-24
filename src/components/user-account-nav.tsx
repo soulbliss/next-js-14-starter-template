@@ -4,7 +4,11 @@ import { getInitials } from '@/lib/utils';
 import { User } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from './ui/avatar';
 import { Button } from './ui/button';
 import {
   DropdownMenu,
@@ -17,15 +21,21 @@ import {
   DropdownMenuTrigger,
 } from './ui/dropdown-menu';
 
-interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
+interface UserAccountNavProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   user: Pick<User, 'name' | 'image' | 'email'>;
 }
 
-export function UserAccountNav({ user }: UserAccountNavProps) {
+export function UserAccountNav({
+  user,
+}: UserAccountNavProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="relative h-8 w-8 rounded-full">
+        <Button
+          variant="ghost"
+          className="relative h-8 w-8 rounded-full"
+        >
           <Avatar className="h-8 w-8">
             <AvatarImage
               src={user.image || ''}
@@ -37,10 +47,16 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56" align="end" forceMount>
+      <DropdownMenuContent
+        className="w-56"
+        align="end"
+        forceMount
+      >
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{user?.name}</p>
+            <p className="text-sm font-medium leading-none">
+              {user?.name}
+            </p>
             <p className="text-xs leading-none text-muted-foreground">
               {user.email}
             </p>
@@ -63,7 +79,8 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
             signOut({
               callbackUrl: `${window.location.origin}/login`,
             });
-          }}>
+          }}
+        >
           Log out
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>

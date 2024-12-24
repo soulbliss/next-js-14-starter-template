@@ -5,7 +5,8 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Login',
-  description: 'Login to your account to access your dashboard',
+  description:
+    'Login to your account to access your dashboard',
 };
 
 export default function AuthenticationPage() {
@@ -18,7 +19,12 @@ export default function AuthenticationPage() {
         <div className="lg:p-8">
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
             <div className="block items-center justify-center self-center md:flex lg:hidden">
-              <Image src="/icon.png" alt="logo" width={48} height={48} />
+              <Image
+                src="/icon.png"
+                alt="logo"
+                width={48}
+                height={48}
+              />
             </div>
             <div className="flex flex-col space-y-2 text-center">
               <h1 className="text-2xl font-semibold tracking-tight">
@@ -28,7 +34,8 @@ export default function AuthenticationPage() {
             <UserAuthForm />
           </div>
           <p className="py-3 text-center text-sm text-muted-foreground">
-            By clicking continue, you agree to our privacy policy.
+            By clicking continue, you agree to our privacy
+            policy.
           </p>
         </div>
       </div>

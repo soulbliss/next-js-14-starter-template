@@ -21,11 +21,13 @@ export async function addContact(contact: EmailContact) {
 
   const response = await fetch(
     'https://app.loops.so/api/v1/contacts/create',
-    options,
+    options
   );
   if (!response.ok) {
     const errorBody = await response.text();
-    throw new Error(`Failed to add contact: ${response.status} ${errorBody}`);
+    throw new Error(
+      `Failed to add contact: ${response.status} ${errorBody}`
+    );
   }
   return response.json();
 }
@@ -33,7 +35,7 @@ export async function addContact(contact: EmailContact) {
 export async function afterUserCreated(values: User) {
   if (process.env.NODE_ENV !== 'production') return;
   try {
-    let promises: Promise<Response>[] = [];
+    const promises: Promise<Response>[] = [];
 
     // send update on discord, if webhook is set
     if (process.env.NOTIFICATION_WEBHOOK) {
@@ -43,8 +45,10 @@ export async function afterUserCreated(values: User) {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(createDiscordMessage(values)),
-        }),
+          body: JSON.stringify(
+            createDiscordMessage(values)
+          ),
+        })
       );
     }
 
@@ -65,7 +69,10 @@ export async function afterUserCreated(values: User) {
       if (result.status === 'fulfilled') {
         console.log(`Request ${index + 1} succeeded`);
       } else {
-        console.error(`Request ${index + 1} failed:`, result.reason);
+        console.error(
+          `Request ${index + 1} failed:`,
+          result.reason
+        );
       }
     });
   } catch (error) {

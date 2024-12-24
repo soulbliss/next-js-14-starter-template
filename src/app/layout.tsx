@@ -13,8 +13,14 @@ export const metadata: Metadata = seoMetaData;
 
 export const viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
+    {
+      media: '(prefers-color-scheme: light)',
+      color: 'white',
+    },
+    {
+      media: '(prefers-color-scheme: dark)',
+      color: 'black',
+    },
   ],
 };
 
@@ -22,20 +28,28 @@ interface RootLayoutProps {
   children: React.ReactNode;
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: RootLayoutProps) {
   return (
     <>
       <html
         lang="en"
         className={`${fontSans.variable} ${fontMono.variable}`}
-        suppressHydrationWarning>
+        suppressHydrationWarning
+      >
         <head />
         <body
           className={cn(
             'min-h-screen bg-background font-sans antialiased',
-            fontSans.variable,
-          )}>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+            fontSans.variable
+          )}
+        >
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+          >
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
               <div className="flex-1">{children}</div>
