@@ -1,17 +1,14 @@
-import { pgDbConfig } from '@/config/pg';
+import { PG_DB_CONNECTION_STRING } from '@/config/env';
 import { Pool } from 'pg';
 
 const pool = new Pool({
-  host: pgDbConfig.host,
-  user: pgDbConfig.user,
-  database: pgDbConfig.database,
-  password: pgDbConfig.password,
-  port: pgDbConfig.port,
-  ssl: pgDbConfig.ssl,
+  connectionString: PG_DB_CONNECTION_STRING,
   max: 20,
-  idleTimeoutMillis: pgDbConfig.idleTimeoutMillis,
-  connectionTimeoutMillis:
-    pgDbConfig.connectionTimeoutMillis,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 10000,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 export const db = pool;

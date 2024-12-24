@@ -52,14 +52,7 @@ git clone https://github.com/soulbliss/next-js-14-starter-template.git
 1. Copy `sample.env.local`  and create `env.local`. Fill up the postgres database credentials.
 
 2. ```
-   PG_DB_USER=
-   PG_DB_NAME=
-   PG_DB_PASSWORD=
-   PG_DB_HOST=localhost
-   PG_DB_PORT=5432
-   PG_DB_SSL=false
-   PG_DB_MAX_CONNECTIONS=20
-   PG_DB_IDLE_TIMEOUT=10000
+   PG_DB_CONNECTION_STRING=
    
    GOOGLE_CLIENT_ID=
    GOOGLE_CLIENT_SECRET=
@@ -70,14 +63,7 @@ git clone https://github.com/soulbliss/next-js-14-starter-template.git
 4. Copy `sample.env.local`  and create `env.local`. Fill up the postgres database credentials.
 
 5. ```
-   PG_DB_USER=
-   PG_DB_NAME=
-   PG_DB_PASSWORD=
-   PG_DB_HOST=localhost
-   PG_DB_PORT=5432
-   PG_DB_SSL=false
-   PG_DB_MAX_CONNECTIONS=20
-   PG_DB_IDLE_TIMEOUT=10000
+   PG_DB_CONNECTION_STRING=
    ```
 
 6. Open migrations file and run the Sql query.

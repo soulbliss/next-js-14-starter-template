@@ -1,3 +1,4 @@
+import { NOTIFICATION_WEBHOOK } from '@/config/env';
 import { EmailContact } from '@/types';
 import { User } from 'next-auth';
 
@@ -38,9 +39,9 @@ export async function afterUserCreated(values: User) {
     const promises: Promise<Response>[] = [];
 
     // send update on discord, if webhook is set
-    if (process.env.NOTIFICATION_WEBHOOK) {
+    if (NOTIFICATION_WEBHOOK) {
       promises.push(
-        fetch(process.env.NOTIFICATION_WEBHOOK, {
+        fetch(NOTIFICATION_WEBHOOK, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
