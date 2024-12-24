@@ -1,4 +1,14 @@
-import { AUTH_SECRET, EMAIL_SERVER_HOST, EMAIL_SERVER_PASSWORD, EMAIL_SERVER_PORT, EMAIL_SERVER_USER, GITHUB_ID, GITHUB_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from '@/config/env';
+import {
+  AUTH_SECRET,
+  EMAIL_SERVER_HOST,
+  EMAIL_SERVER_PASSWORD,
+  EMAIL_SERVER_PORT,
+  EMAIL_SERVER_USER,
+  GITHUB_ID,
+  GITHUB_SECRET,
+  GOOGLE_CLIENT_ID,
+  GOOGLE_CLIENT_SECRET,
+} from '@/config/env';
 import PostgresAdapter from '@auth/pg-adapter';
 import { NextAuthOptions } from 'next-auth';
 import { Adapter } from 'next-auth/adapters';
