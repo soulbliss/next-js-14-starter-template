@@ -3,9 +3,8 @@
 
 echo "Running checks before git push"
 
-# Format and lint with Biome
+# Format
 pnpm run format:fix
-pnpm run lint:fix
 
 # Type check
 pnpm run typecheck
