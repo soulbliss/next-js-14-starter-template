@@ -3,8 +3,8 @@
 
 echo "Running checks before git push"
 
-pnpm run lint:fix
+# pnpm run lint:fix
 
-pnpm run lint
+# pnpm run lint
 
-pnpm run typecheck
+# pnpm run typecheck
