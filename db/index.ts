@@ -8,5 +8,6 @@ const pool = new Pool({
   max: 20,
   idleTimeoutMillis: pgDbConfig.idleTimeoutMillis,
   connectionTimeoutMillis: pgDbConfig.connectionTimeoutMillis,
+  ssl: true,
 });
 export const db = drizzle({ client: pool, casing: 'snake_case' });
